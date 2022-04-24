@@ -1,9 +1,12 @@
-﻿namespace CMS.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CMS.API.Models
 {
     public class City
     {
-        public string Name { get; set; }    
+        [Required(ErrorMessage = "City name is required")]
+        public string Name { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

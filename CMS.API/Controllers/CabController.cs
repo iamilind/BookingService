@@ -1,4 +1,5 @@
-﻿using CMS.API.Models;
+﻿using CMS.API.Filters;
+using CMS.API.Models;
 using CMS.API.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -19,19 +20,11 @@ namespace CMS.API.Controllers
             this.cabService = cabService;
         }
 
-        // GET: api/<CabsController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET api/<CabsController>/5
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Get(int cabId)
         {
-            if (cabId < 0)
-                return BadRequest("Cab id is invalid.");
             var id = await cabService.GetCabAsync(cabId);
             return Ok(id);
         }
@@ -40,8 +33,6 @@ namespace CMS.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Cab cabDetails)
         {
-            if (cabDetails == null)
-                return BadRequest("Cab details are invalid");
             var id = await cabService.AddCabAsync(cabDetails);
             return Ok(id);
         }
@@ -50,8 +41,6 @@ namespace CMS.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int cabId, [FromBody] Cab cabDetails)
         {
-            if (cabId < 0)
-                return BadRequest("Cab id is invalid.");
             var id = await cabService.UpdateCabDetailsAsync(cabId, cabDetails);
             return Ok(id);
         }
@@ -60,8 +49,6 @@ namespace CMS.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int cabId)
         {
-            if (cabId < 0)
-                return BadRequest("Cab id is invalid.");
             var id = await cabService.DisableCabAsync(cabId);
             return Ok(id);
         }

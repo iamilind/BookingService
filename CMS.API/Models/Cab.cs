@@ -1,18 +1,25 @@
-﻿namespace CMS.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CMS.API.Models
 {
     public class Cab
     {
-        public string Model { get; set; }
+        [Required]
+        public string Name { get; set; }
 
+        [Required]
         public string Number { get; set; }
 
-        public Categoty Category { get; set; }
+        [Required]
+        public string Category { get; set; }
 
+        [Required]
         public int CityId { get; set; }
 
-        public bool IsActive { get; set; }
+        public int Status { get; set; } = 0;
 
-        public string DriveName { get; set; }   
+        [Required]
+        public int DriverId { get; set; }   
     }
 
     public enum Categoty
@@ -22,5 +29,12 @@
         SEDAN,
 
         HATCHBACK
+    }
+
+    public enum CabStatus
+    {
+        IDLE,
+        ON_TRIP,
+        IN_ACTIVE
     }
 }

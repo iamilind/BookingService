@@ -4,28 +4,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CMS.API.DBEntities
 {
-    public class CabEntity
+    public class BookingEntity
     {
         [Key]
         public int Id { get; set; }
-        public string Name { get; set; }
 
-        public string Number { get; set; }
+        public int UserId { get; set; }
 
         public int Category { get; set; }
 
         public int CityId { get; set; }
 
+        public int? CabId { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
         public int Status { get; set; }
-
-        public DateTime LastTripEndedAt { get; set; }
-
-        public int DriverId { get; set; }
 
         [ForeignKey("CityId")]
         public CityEntity CityEntity { get; set; }
 
-        [ForeignKey("DriverId")]
-        public Driver DriverEntity { get; set; }
+        [ForeignKey("UserId")]
+        public User UserEntity { get; set; }
+
+        [ForeignKey("CabId")]
+        public CabEntity CabEntity { get; set; }
     }
 }

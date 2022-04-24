@@ -18,12 +18,18 @@ namespace CMS.API.Controllers
             this.cityService = cityService;
         }
 
+        // GET api/<CityController>
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var cities = await cityService.GetCityListAsync();
+            return Ok(cities);
+        }
+
         // GET api/<CityController>/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int cityId)
         {
-            if (cityId < 0)
-                return BadRequest("City id is invalid.");
             var id = await cityService.GetCityAsync(cityId);
             return Ok(id);
         }
@@ -32,8 +38,6 @@ namespace CMS.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] City city)
         {
-            if (city == null || string.IsNullOrWhiteSpace(city.Name))
-                return BadRequest("City can not be empty.");
             var id = await cityService.AddCityAsync(city);
             return Accepted(id);
         }
@@ -42,11 +46,8 @@ namespace CMS.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int cityId, [FromBody] City cityDetails)
         {
-            if (cityId < 0)
-                return BadRequest("City id is invalid.");
-            if(cityDetails == null || string.IsNullOrWhiteSpace(cityDetails.Name))
-                return BadRequest("City details are invalid.");
-
+            if(cityId <= 0)
+                return UnprocessableEntity("City id is invalid.");
             var id = await cityService.UpdateCityAsync(cityId, cityDetails);
             return Ok(id);
         }
@@ -55,8 +56,6 @@ namespace CMS.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int cityId)
         {
-            if (cityId < 0)
-                return BadRequest("City id is invalid.");
             var id = await cityService.DisableCityAsync(cityId);
             return Ok(id);
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kulkarnimi\\OneDrive - VMware, Inc\\VMwareCorp\\Desktop\\CabManagementSystem\\CMS.API\\CMS.API.csproj": {}
+    "E:\\personalrepos\\CabManagementSystem\\CMS.API\\CMS.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kulkarnimi\\OneDrive - VMware, Inc\\VMwareCorp\\Desktop\\CabManagementSystem\\CMS.API\\CMS.API.csproj": {
+    "E:\\personalrepos\\CabManagementSystem\\CMS.API\\CMS.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kulkarnimi\\OneDrive - VMware, Inc\\VMwareCorp\\Desktop\\CabManagementSystem\\CMS.API\\CMS.API.csproj",
+        "projectUniqueName": "E:\\personalrepos\\CabManagementSystem\\CMS.API\\CMS.API.csproj",
         "projectName": "CMS.API",
-        "projectPath": "C:\\Users\\kulkarnimi\\OneDrive - VMware, Inc\\VMwareCorp\\Desktop\\CabManagementSystem\\CMS.API\\CMS.API.csproj",
+        "projectPath": "E:\\personalrepos\\CabManagementSystem\\CMS.API\\CMS.API.csproj",
         "packagesPath": "C:\\Users\\kulkarnimi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kulkarnimi\\OneDrive - VMware, Inc\\VMwareCorp\\Desktop\\CabManagementSystem\\CMS.API\\obj\\",
+        "outputPath": "E:\\personalrepos\\CabManagementSystem\\CMS.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kulkarnimi\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,4 +1,5 @@
 ﻿using CMS.API.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CMS.API.Service
@@ -14,5 +15,7 @@ namespace CMS.API.Service
         Task<bool> UpdateCityAsync(int cityId, City city);
 
         Task<City> GetCityAsync(int cityId);
+
+        Task<List<City>> GetCityListAsync();
     }
 }

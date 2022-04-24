@@ -2,21 +2,20 @@
 {
     public class BookCab
     {
-        public string CustomerName { get; set; }        
+        public int CustomerId { get; set; }        
 
-        public int NumberofPassangers { get; set; }
+        public int Category { get; set; }
 
-        public int Distance { get; set; }   
+        public int CityId { get; set; }
 
-        public int Location { get; set; }
 
     }
 
     public enum Status
     {
-        BOOKED,
+        INITIATED, 
 
-        ASSIGNED,
+        BOOKED,
 
         CANCELLED,
 
